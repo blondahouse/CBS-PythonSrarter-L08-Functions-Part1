@@ -6,46 +6,46 @@ def my_menu(list_items):
 
 def dialogue(message, list_length):
     while True:
-        c = input(message)
+        input_string = input(message)
         try:
-            range(list_length + 1).index(int(c))
+            range(list_length + 1).index(int(input_string))
         except ValueError:
             print("\t\tError message: Wrong input, try again")
         else:
-            return int(c)
+            return int(input_string)
 
 
 def int_in_range(message, range_left, range_right):
     while True:
-        c = input(message)
+        input_string = input(message)
         try:
-            range(range_left, range_right + 1).index(int(c))
+            range(range_left, range_right + 1).index(int(input_string))
         except ValueError:
             print("\t\tError message: Wrong input, try again")
         else:
-            return int(c)
+            return int(input_string)
 
 
 def float_any(message):
     while True:
-        c = input(message)
+        input_string = input(message)
         try:
-            float(c)
+            float(input_string)
         except ValueError:
             print("\t\tError message: Wrong input, try again")
         else:
-            return float(c)
+            return float(input_string)
 
 
 def float_non_zero(message):
     while True:
-        c = input(message)
+        input_string = input(message)
         try:
-            1/float(c)
+            1 / float(input_string)
         except ValueError:
             print("\t\tError message: Wrong input, try again")
         else:
-            return float(c)
+            return float(input_string)
 
 
 def addition():
@@ -90,19 +90,19 @@ def cube_root():
     print(f'\t\tcube root of {radicand} = {radicand ** degree}\n')
 
 
-list_items = ['addition',
-              'subtraction',
-              'multiplication',
-              'division',
-              'exponentiation',
-              'square root',
-              'cube root']
+operation_list = ['addition',
+                  'subtraction',
+                  'multiplication',
+                  'division',
+                  'exponentiation',
+                  'square root',
+                  'cube root']
 
-c = 1
-while c:
-    my_menu(list_items)
-    c = dialogue('\tEnter action number (integer): ', len(list_items))
-    match c:
+stop_sign = 1
+while stop_sign:
+    my_menu(operation_list)
+    stop_sign = dialogue('\tEnter action number (integer): ', len(operation_list))
+    match stop_sign:
         case 1:  # addition
             addition()
         case 2:  # subtraction
